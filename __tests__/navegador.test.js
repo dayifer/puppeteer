@@ -20,6 +20,10 @@ describe('Mi primer test en puppeteer', () => {
 		await page.waitForSelector('img')
 		await page.goto('https://platzi.com/')
 		await page.waitForSelector('body > main > header > div > figure > a > svg > g')
+
+		// NAVEGAR HACIA ATRÁS
+		await page.goBack()
+		await page.waitForSelector('img')
 		await browser.close()
-	}, 80000)
+	}, 150000)
 })
