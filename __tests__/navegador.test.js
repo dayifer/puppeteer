@@ -15,7 +15,7 @@ describe('Mi primer test en puppeteer', () => {
            defaultViewport:null
 		})
 		const page = await browser.newPage()
-		await page.goto('https://www.google.com/search?sca_esv=029406e1c61d5581&q=imagenes&udm=2&fbs=ABzOT_BnMAgCWdhr5zilP5f1cnRvK9uZj3HA_MTJAA6lXR8yQIHhBi298nC38CQZOY2HEJbZvsLV77zEUv5_mptgx3dxNDrECcxLBch35189bUXwYNkkPIDQ_nCjr5u_zNUQDWpbiZoMLMtUMyJZYz_1fn9IdkelXDZrSZDjfzm5GL-680dOWgpwIjKg1XkRYxIMn3vJtBwt&sa=X&ved=2ahUKEwjkqMWjyZuLAxX5QzABHV9AG14QtKgLegQIERAB&biw=1050&bih=649&dpr=1#vhid=QyjckPLcTSohTM&vssid=mosaic')
+		await page.goto('https://github.com/')
 		await new Promise(resolve => setTimeout(resolve, 5000))
 		await page.waitForSelector('img')
 		await page.goto('https://platzi.com/')
@@ -23,7 +23,13 @@ describe('Mi primer test en puppeteer', () => {
 
 		// NAVEGAR HACIA ATRÁS
 		await page.goBack()
-		await page.waitForSelector('img')
+		// IR HACIA ADELANTE EN EL NAVEGADOR
+		await page.goForward()
+		//	await page.waitForSelector('img')
+
+		//ABRIR OTRA PÁGINA
+		const page2 = await browser.newPage()
+		await page2.goto('https://google.com/')
 		await browser.close()
-	}, 150000)
+	}, 350000)
 })
