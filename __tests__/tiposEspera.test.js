@@ -12,7 +12,7 @@ describe('Tipos de Espera',() => {
         //SIRVE PARA QUE LA PAGINA TERMINE DE GURDAR LOS ELEMENTOS WAITUNTIL
         await page.goto("https://demoqa.com/modal-dialogs/", { waitUntil:'networkidle2' }) 
 
-        await new Promise(resolve => setTimeout(resolve, 3000))
+        await new Promise(resolve => setTimeout(resolve, 50000))
 
         //SIRVE PARA ESPERAR POR UN SELECTOR
 
@@ -21,7 +21,9 @@ describe('Tipos de Espera',() => {
         // OTRA MANERA DE PASAR EL VALOR DEL SELECTOR PARA HACER UNA ACCIÓN
         await button.click()
        
-        
+        // ESPERA POR FUNCIÓN
+
+        await page.waitForFunction(() => document.querySelector('#example-modal-sizes-title-sm').innerText === 'Small Modal')
 
         await browser.close()
 
